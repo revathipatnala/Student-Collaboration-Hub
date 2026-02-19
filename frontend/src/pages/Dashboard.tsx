@@ -329,7 +329,19 @@ const Dashboard: React.FC = () => {
                   <div className="mb-1"><span className="font-semibold">Time:</span> {event.date ? new Date(event.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}</div>
                   <div className="mb-1"><span className="font-semibold">Branch:</span> {event.branch}</div>
                   <div className="mb-1"><span className="font-semibold">Location:</span> {event.location}</div>
-                  {event.registrationLink && <div className="mb-1"><span className="font-semibold">Registration Link:</span> <a href={event.registrationLink} className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">{event.registrationLink}</a></div>}
+                  {event.registrationLink && (
+                    <div className="mb-1">
+                      <span className="font-semibold">Registration Link:</span>{' '}
+                      <a
+                        href={/^https?:\/\//.test(event.registrationLink) ? event.registrationLink : `https://${event.registrationLink}`}
+                        className="text-blue-600 underline hover:text-blue-800 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Link
+                      </a>
+                    </div>
+                  )}
                   {event.contactNo && <div className="mb-1"><span className="font-semibold">Contact No:</span> {event.contactNo}</div>}
                   {event.coordinatorName1 && <div className="mb-1"><span className="font-semibold">Coordinator 1:</span> {event.coordinatorName1}</div>}
                   {event.coordinatorName2 && <div className="mb-1"><span className="font-semibold">Coordinator 2:</span> {event.coordinatorName2}</div>}

@@ -401,7 +401,17 @@ const Events: React.FC = () => {
                       <div className="mb-1 text-gray-600">Location: <span className="font-normal">{event.location}</span></div>
                       <div className="mb-2 text-gray-700">Description: <span className="font-normal">{event.description}</span></div>
                       {event.registrationLink && (
-                        <div className="mb-1 text-gray-600">Registration: <a href={/^https?:\/\//.test(event.registrationLink) ? event.registrationLink : `https://${event.registrationLink}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">{event.registrationLink}</a></div>
+                        <div className="mb-1 text-gray-600">
+                          Registration: {' '}
+                          <a
+                            href={/^https?:\/\//.test(event.registrationLink) ? event.registrationLink : `https://${event.registrationLink}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 underline hover:text-blue-800 transition-colors"
+                          >
+                            Link
+                          </a>
+                        </div>
                       )}
                       {event.contactNo && (
                         <div className="mb-1 text-gray-600">Contact No: <span className="font-normal">{event.contactNo}</span></div>
@@ -470,9 +480,19 @@ const Events: React.FC = () => {
                 <div className="mb-2 text-gray-600">Date: <span className="font-semibold">{new Date(event.date).toLocaleDateString()}</span> | Time: <span className="font-semibold">{new Date(event.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span></div>
                 <div className="mb-2 text-gray-600">Branch: <span className="font-semibold">{event.branch}</span></div>
                 <div className="mb-2 text-gray-600">Location: <span className="font-semibold">{event.location}</span></div>
-                {event.registrationLink && (
-                  <div className="mb-2 text-gray-600">Registration: <a href={/^https?:\/\//.test(event.registrationLink) ? event.registrationLink : `https://${event.registrationLink}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">{event.registrationLink}</a></div>
-                )}
+                      {event.registrationLink && (
+                        <div className="mb-1 text-gray-600">
+                          Registration: {' '}
+                          <a
+                            href={/^https?:\/\//.test(event.registrationLink) ? event.registrationLink : `https://${event.registrationLink}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 underline hover:text-blue-800 transition-colors"
+                          >
+                            Link
+                          </a>
+                        </div>
+                      )}
                 {event.contactNo && (
                   <div className="mb-2 text-gray-600">Contact No: <span className="font-semibold">{event.contactNo}</span></div>
                 )}
